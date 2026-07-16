@@ -1,0 +1,36 @@
+require("dotenv").config();
+const express = require('express');
+const connectDB = require("./DB/connectDB.js")
+const urlRoutes = require("./routes/url.routes.js");
+const path = require("path");
+const staticRoute = require("./routes/static.route.js");
+const userRoute = require("./routes/user.route.js");
+const {restrictToLoggedUserOnly ,checkAuth } = require("./middlewares/auth.mdl.js")
+const cookieParser = require("cookie-parser");
+ 
+
+const app = express();
+const PORT = process.env.PORT ||  3000;
+
+
+// mongo Connect 
+connectDB( process.env.MONGO_URI);
+
+// view engin ejs
+app.set("view engine" , "ejs");
+app.set("views" , path.resolve("./views"))
+
+// middleware 
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(cookieParser());
+
+app.use("/url"   ,restrictToLoggedUserOnly, urlRoutes);
+app.use("/user"  , userRoute);
+
+app.use("/" ,checkAuth , staticRoute) ; 
+
+
+app.listen(PORT , ()=>{
+    console.log(`Sever is lisening at http://localhost:${PORT}`);
+})
