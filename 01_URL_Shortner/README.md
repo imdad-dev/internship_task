@@ -33,9 +33,20 @@ A professional, full-stack URL shortening service with user authentication, link
 ### View Routes (Static)
 | Method | Endpoint | Description |
 |:-------|:---------|:------------|
-| GET    | `/home`   | User dashboard (Requires Login). |
+| GET    | `/`   | User dashboard (Requires Login). |
 | GET    | `/signup` | Signup page interface. |
 | GET    | `/login`  | Login page interface. |
+
+
+---
+ ### 📖 Workflow
+  1. User submits a long URL.
+   2. Server generates a unique short ID.
+  3. URL is stored in MongoDB. 
+  4. A shortened URL is returned.
+  5. Visiting the short URL redirects to the original website. 
+ ---
+
 
 ## 📂 Project Structure
 
@@ -57,10 +68,11 @@ project-root/
 
 1. **Clone the repository**
 
-   ```bash
-   git clone https://github.com/imdad-dev/NodeJs-mini-projects.git
-   cd NodeJs-mini-projects/06_URL_Shortner
-   ```
+```bash 
+git clone https://github.com/imdad-dev/internship_task.git
+cd internship_task/01_URL_Shortner
+
+ ```
 
 2. **Install dependencies**
 
