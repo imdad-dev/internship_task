@@ -1,86 +1,320 @@
-# EventHub — Event Registration System
+# 🎉 EventHub - Event Registration System
 
-Node.js + Express + MongoDB (Mongoose) + EJS + jQuery.
+<p align="center">
+  <img src="./public/images/banner.png" alt="EventHub Banner" width="100%">
+</p>
 
-## Folder structure
+<p align="center">
+
+![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-Backend-black?style=for-the-badge&logo=express)
+![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![EJS](https://img.shields.io/badge/EJS-Templates-B4CA65?style=for-the-badge)
+![JWT](https://img.shields.io/badge/JWT-Authentication-black?style=for-the-badge&logo=jsonwebtokens)
+
+</p>
+
+<p align="center">
+A full-stack event registration platform where organizers create events and attendees register seamlessly.
+</p>
+
+---
+
+## 📸 Project Screenshots
+
+> Replace these placeholder images with your own screenshots.
+
+| Home Page | Event Details |
+|------------|---------------|
+| ![](./screenshots/home.png) | ![](./screenshots/event-details.png) |
+
+<br>
+
+| Organizer Dashboard | User Dashboard |
+|---------------------|----------------|
+| ![](./screenshots/organizer-dashboard.png) | ![](./screenshots/user-dashboard.png) |
+
+---
+
+# ✨ Features
+
+### 👤 Authentication
+
+- Register/Login
+- JWT Authentication
+- Password Hashing (bcrypt)
+- Role-based Authorization
+- Secure httpOnly Cookies
+
+### 🎯 Organizer Features
+
+- Create Events
+- Update Events
+- Delete Events
+- View Registrants
+- Manage Own Events
+
+### 🙋 Attendee Features
+
+- Browse Events
+- Search Events
+- Filter by Category
+- Register for Events
+- Cancel Registration
+- Personal Dashboard
+
+### ⚡ System Features
+
+- Capacity Validation
+- Secure API
+- AJAX-powered UI (jQuery)
+- Responsive Interface
+- MongoDB Database
+
+---
+
+# 🛠 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| Node.js | Runtime |
+| Express.js | Backend Framework |
+| MongoDB | Database |
+| Mongoose | ODM |
+| EJS | View Engine |
+| jQuery | AJAX & UI |
+| JWT | Authentication |
+| bcrypt | Password Hashing |
+
+---
+
+# 📂 Project Structure
+
+```text
+EventHub/
+│
+├── app.js
+├── index.js
+├── .env
+├── package.json
+│
+├── config/
+│   └── db.js
+│
+├── controllers/
+│   ├── authController.js
+│   ├── eventController.js
+│   └── registrationController.js
+│
+├── middleware/
+│   ├── auth.js
+│   └── errorHandler.js
+│
+├── models/
+│   ├── User.js
+│   ├── Event.js
+│   └── Registration.js
+│
+├── routes/
+│   ├── authRoutes.js
+│   ├── eventRoutes.js
+│   ├── registrationRoutes.js
+│   └── viewRoutes.js
+│
+├── views/
+│
+├── public/
+│   ├── css/
+│   └── js/
+│
+└── screenshots/
 ```
-index.js            entry point (connects DB, starts server)
-app.js               express app setup (middleware, view engine, routes)
-config/db.js          MongoDB connection
-models/               User, Event, Registration (Mongoose schemas)
-controllers/           business logic for auth, events, registrations
-routes/                 API routes (/api/...) + view routes (page rendering)
-middleware/             auth (JWT protect/authorize), error handler
-views/                  EJS pages (home, events, login, register, dashboard, admin/*)
-public/css, public/js    styling + jQuery AJAX logic (interactive frontend)
-.env                    MONGO_URI, JWT_SECRET, PORT (already filled with local defaults)
-```
 
-## 1. Requirements
-- Node.js v18+
-- MongoDB running locally (or a MongoDB Atlas connection string)
+---
 
-## 2. Install dependencies
-```
+# ⚙️ Installation
+
+## 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/yourusername/event-registration-system.git
+
 cd event-registration-system
+```
+
+---
+
+## 2️⃣ Install Dependencies
+
+```bash
 npm install
 ```
 
-## 3. Configure environment
-A `.env` file is already included with local defaults:
-```
+---
+
+## 3️⃣ Configure Environment Variables
+
+Create a `.env` file.
+
+```env
 MONGO_URI=mongodb://127.0.0.1:27017/event_registration_db
+
 PORT=5000
+
 JWT_SECRET=supersecretjwtkey_change_this
+
 JWT_EXPIRES_IN=7d
+
 NODE_ENV=development
 ```
-If you use MongoDB Atlas, replace `MONGO_URI` with your Atlas connection string.
 
-## 4. Start MongoDB locally (skip if using Atlas)
-```
+> If using MongoDB Atlas, replace the `MONGO_URI`.
+
+---
+
+## 4️⃣ Start MongoDB
+
+Skip this if using Atlas.
+
+```bash
 mongod
 ```
 
-## 5. Run the project
-```
-npm start
-```
-or with auto-reload during development:
-```
+---
+
+## 5️⃣ Run Application
+
+Development
+
+```bash
 npm run dev
 ```
 
-Visit: **http://localhost:5000**
+Production
 
-## 6. How to use it
-1. Go to `/register` and create an account.
-   - Choose **Attendee** to browse/register for events.
-   - Choose **Organizer** to create and manage events.
-2. As an Organizer: go to **Manage Events** → **Create Event** → fill the form.
-3. As an Attendee: go to **Browse Events** → open an event → **Register Now** → fill the registration form.
-4. Go to **My Dashboard** to view or **cancel** your registrations.
-5. Organizers can view each event's registrant list from **Manage Events → Registrations**.
+```bash
+npm start
+```
 
-## API Endpoints (for reference/testing with Postman)
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| POST | /api/auth/register | - | Register user/organizer |
-| POST | /api/auth/login | - | Login |
-| POST | /api/auth/logout | - | Logout |
-| GET | /api/events | - | List events (supports ?search, ?category) |
-| GET | /api/events/:id | - | Event details |
-| POST | /api/events | organizer | Create event |
-| PUT | /api/events/:id | organizer (owner) | Update event |
-| DELETE | /api/events/:id | organizer (owner) | Delete event |
-| GET | /api/events/organizer/mine | organizer | My created events |
-| POST | /api/registrations | user | Register for an event |
-| GET | /api/registrations/my | user | My registrations |
-| DELETE | /api/registrations/:id | user (owner) | Cancel registration |
-| GET | /api/registrations/event/:eventId | organizer (owner) | View event's registrants |
+Open
 
-## Notes
-- Auth uses JWT stored in an httpOnly cookie (also returned in the JSON response).
-- Passwords are hashed with bcrypt.
-- Capacity is enforced — an event stops accepting registrations once full.
-- All code already syntax-checked and the Express app boots successfully; you just need a running MongoDB to fully test end-to-end.
+```
+http://localhost:5000
+```
+
+---
+
+# 🚀 How to Use
+
+## 👤 Register
+
+Visit
+
+```
+/register
+```
+
+Choose one of the following roles:
+
+- Attendee
+- Organizer
+
+---
+
+## 🧑‍💼 Organizer Workflow
+
+```
+Login
+      ↓
+Manage Events
+      ↓
+Create Event
+      ↓
+Publish Event
+      ↓
+View Registrants
+```
+
+---
+
+## 🙋 Attendee Workflow
+
+```
+Register/Login
+       ↓
+Browse Events
+       ↓
+Open Event
+       ↓
+Register
+       ↓
+Dashboard
+       ↓
+Cancel Registration
+```
+
+---
+
+# 📡 REST API
+
+## Authentication
+
+| Method | Endpoint |
+|---------|----------|
+| POST | `/api/auth/register` |
+| POST | `/api/auth/login` |
+| POST | `/api/auth/logout` |
+
+---
+
+## Events
+
+| Method | Endpoint | Access |
+|---------|----------|--------|
+| GET | `/api/events` | Public |
+| GET | `/api/events/:id` | Public |
+| POST | `/api/events` | Organizer |
+| PUT | `/api/events/:id` | Organizer |
+| DELETE | `/api/events/:id` | Organizer |
+| GET | `/api/events/organizer/mine` | Organizer |
+
+---
+
+## Registrations
+
+| Method | Endpoint | Access |
+|---------|----------|--------|
+| POST | `/api/registrations` | User |
+| GET | `/api/registrations/my` | User |
+| DELETE | `/api/registrations/:id` | User |
+| GET | `/api/registrations/event/:eventId` | Organizer |
+
+---
+
+# 🔒 Security
+
+- JWT Authentication
+- Password Hashing using bcrypt
+- Protected Routes
+- Role-based Authorization
+- httpOnly Cookies
+- Capacity Validation
+
+---
+ 
+
+ 
+
+# 👨‍💻 Author
+
+**Imdadul Hoque**
+
+Backend Developer
+
+GitHub: **https://github.com/imdad-dev**
+
+---
+
+<p align="center">
+Made with ❤️ using Node.js, Express.js and MongoDB
+</p>
