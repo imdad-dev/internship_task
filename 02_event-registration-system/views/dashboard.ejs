@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+<h2 class="mb-4">My Dashboard</h2>
+<p class="text-muted">Welcome back, <strong><%= user.name %></strong>! Here are your event registrations.</p>
+
+<div id="myRegistrationsList" class="row g-3">
+  <div class="col-12 text-center text-muted py-5">Loading your registrations...</div>
+</div>
+
+<script src="/js/registrations.js"></script>
+<script>
+  $(function () {
+    loadMyRegistrations();
+  });
+</script>
+<%- include('partials/footer') %>

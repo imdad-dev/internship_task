@@ -1,0 +1,15 @@
+:root {
+  --eh-primary: #4f46e5;
+  --eh-primary-dark: #4338ca;
+  --eh-bg: #f7f7fb;
+}
+body { background: var(--eh-bg); font-family: 'Segoe UI', system-ui, sans-serif; }
+.eh-navbar { background: var(--eh-primary); }
+.eh-btn-primary { background: var(--eh-primary); border-color: var(--eh-primary); color: #fff; }
+.eh-btn-primary:hover { background: var(--eh-primary-dark); color: #fff; }
+.eh-hero { background: linear-gradient(135deg, var(--eh-primary), #7c3aed); color: #fff; }
+.eh-card { border: none; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+.event-card { border: none; border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); transition: transform .15s ease; height: 100%; }
+.event-card:hover { transform: translateY(-4px); }
+.badge-seats { font-size: .8rem; }
+.eh-footer { background: #fff; color: #777; border-top: 1px solid #eee; }

@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card eh-card p-4">
+      <h3 class="mb-3 text-center">Create Account</h3>
+      <form id="registerForm">
+        <div class="mb-3">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="regName" required />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" id="regEmailField" required />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" id="regPasswordField" minlength="6" required />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Account Type</label>
+          <select class="form-select" id="regRole">
+            <option value="user">Attendee (register for events)</option>
+            <option value="organizer">Organizer (create & manage events)</option>
+          </select>
+        </div>
+        <div id="registerAlert"></div>
+        <button type="submit" class="btn eh-btn-primary w-100">Create Account</button>
+      </form>
+      <p class="text-center mt-3 mb-0">Already have an account? <a href="/login">Login here</a></p>
+    </div>
+  </div>
+</div>
+<script src="/js/auth.js"></script>
+<script>
+  $(function () {
+    $("#registerForm").on("submit", function (e) {
+      e.preventDefault();
+      registerUser({
+        name: $("#regName").val(),
+        email: $("#regEmailField").val(),
+        password: $("#regPasswordField").val(),
+        role: $("#regRole").val(),
+      });
+    });
+  });
+</script>
+<%- include('partials/footer') %>

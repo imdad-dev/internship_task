@@ -2,6 +2,21 @@
 
 A professional, full-stack URL shortening service with user authentication, link management, and real-time click analytics.
 
+
+--- 
+## 📸 Preview
+ ### 🏠 Dashboard
+  ![Dashboard](./images/dashboard.png) 
+  ### 🔗 URL Shortening 
+
+  ![URL Shortener](./images/url-shortener.png) 
+  ### 📊 Analytics 
+  
+  ![Analytics](./images/analytics.png) 
+  ### 🔐 Authentication 
+  
+  ![Login](./images/login.png) ---
+
 ## 🚀 Features
 - **User Authentication**: Secure signup and login system.
 - **URL Shortening**: Convert long URLs into compact, shareable links.

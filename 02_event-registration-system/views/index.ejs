@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+<div class="eh-hero rounded-4 p-5 mb-5 text-center">
+  <h1 class="display-5 fw-bold">Find. Register. Attend.</h1>
+  <p class="lead">Discover events happening around you and register in seconds.</p>
+  <a href="/events" class="btn btn-lg eh-btn-primary mt-2">Browse Events</a>
+</div>
+
+<h3 class="mb-3">Upcoming Events</h3>
+<div class="row g-4" id="homeEventsList">
+  <div class="col-12 text-center text-muted py-5">Loading events...</div>
+</div>
+
+<script src="/js/events.js"></script>
+<script>
+  $(function () {
+    loadEvents("#homeEventsList", { limit: 3 });
+  });
+</script>
+<%- include('partials/footer') %>

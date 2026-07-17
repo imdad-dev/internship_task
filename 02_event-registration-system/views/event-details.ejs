@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+<div id="eventDetailsBox">
+  <div class="text-center text-muted py-5">Loading event...</div>
+</div>
+
+<!-- Registration Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Register for Event</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="registrationForm">
+          <input type="hidden" id="regEventId" value="<%= eventId %>" />
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="regFullName" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" id="regEmail" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input type="text" class="form-control" id="regPhone" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Notes (optional)</label>
+            <textarea class="form-control" id="regNotes" rows="2"></textarea>
+          </div>
+          <div id="regFormAlert"></div>
+          <button type="submit" class="btn eh-btn-primary w-100">Confirm Registration</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/events.js"></script>
+<script src="/js/registrations.js"></script>
+<script>
+  $(function () {
+    loadEventDetails("<%= eventId %>");
+
+    $("#registrationForm").on("submit", function (e) {
+      e.preventDefault();
+      submitRegistration({
+        eventId: $("#regEventId").val(),
+        fullName: $("#regFullName").val(),
+        email: $("#regEmail").val(),
+        phone: $("#regPhone").val(),
+        notes: $("#regNotes").val(),
+      });
+    });
+  });
+</script>
+<%- include('partials/footer') %>

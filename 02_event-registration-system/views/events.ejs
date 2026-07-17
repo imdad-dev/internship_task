@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+  <h2 class="mb-0">All Events</h2>
+  <div class="d-flex gap-2">
+    <input type="text" id="searchInput" class="form-control" placeholder="Search events..." />
+    <select id="categoryFilter" class="form-select">
+      <option value="all">All Categories</option>
+      <option value="Tech">Tech</option>
+      <option value="Music">Music</option>
+      <option value="Business">Business</option>
+      <option value="Sports">Sports</option>
+      <option value="General">General</option>
+    </select>
+  </div>
+</div>
+
+<div class="row g-4" id="eventsList">
+  <div class="col-12 text-center text-muted py-5">Loading events...</div>
+</div>
+
+<script src="/js/events.js"></script>
+<script>
+  $(function () {
+    loadEvents("#eventsList");
+
+    $("#searchInput").on("input", debounce(applyFilters, 400));
+    $("#categoryFilter").on("change", applyFilters);
+
+    function applyFilters() {
+      loadEvents("#eventsList", {
+        search: $("#searchInput").val(),
+        category: $("#categoryFilter").val(),
+      });
+    }
+
+    function debounce(fn, delay) {
+      let timer;
+      return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(this, args), delay);
+      };
+    }
+  });
+</script>
+<%- include('partials/footer') %>
