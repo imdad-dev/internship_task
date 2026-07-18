@@ -1,0 +1,75 @@
+<div class="panel">
+  <div class="panel-head">
+    <h3>Menu Items</h3>
+    <button class="btn btn-primary btn-sm" id="addMenuBtn">+ Add Dish</button>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr><th>Dish</th><th>Category</th><th>Price</th><th>Type</th><th>Status</th><th></th></tr>
+      </thead>
+      <tbody id="menuTableBody">
+        <tr><td colspan="6" style="text-align:center; color:var(--text-muted);">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Add/Edit Modal -->
+<div class="modal-overlay" id="menuModalOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="menuModalTitle">Add Dish</h3>
+      <button class="modal-close" id="menuModalClose">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form id="menuForm">
+        <input type="hidden" name="_id" />
+        <div class="form-group">
+          <label>Dish Name</label>
+          <input type="text" class="form-control" name="name" required />
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="form-control" name="description" rows="2"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Price (₹)</label>
+            <input type="number" class="form-control" name="price" min="0" step="1" required />
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select class="form-control" name="category">
+              <option>Starter</option>
+              <option>Main Course</option>
+              <option>Dessert</option>
+              <option>Beverage</option>
+              <option>Combo</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group checkbox-row">
+            <input type="checkbox" name="isVeg" id="isVegChk" checked />
+            <label for="isVegChk" style="margin:0;">Vegetarian</label>
+          </div>
+          <div class="form-group checkbox-row">
+            <input type="checkbox" name="isFeatured" id="isFeaturedChk" />
+            <label for="isFeaturedChk" style="margin:0;">Featured Dish</label>
+          </div>
+        </div>
+        <div class="form-group checkbox-row">
+          <input type="checkbox" name="isAvailable" id="isAvailableChk" checked />
+          <label for="isAvailableChk" style="margin:0;">Available on menu</label>
+        </div>
+      </form>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" id="menuCancelBtn" type="button">Cancel</button>
+      <button class="btn btn-primary" id="menuSaveBtn" type="button">Save Dish</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/admin-menu.js"></script>

@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <div class="container">
+    <a href="/" class="brand">Savora<span>.</span></a>
+    <div class="nav-links">
+      <a href="/" class="<%= currentPath === '/' ? 'active' : '' %>">Home</a>
+      <a href="/menu" class="<%= currentPath === '/menu' ? 'active' : '' %>">Menu</a>
+      <a href="/reserve" class="<%= currentPath === '/reserve' ? 'active' : '' %>">Reserve a Table</a>
+      <a href="/about" class="<%= currentPath === '/about' ? 'active' : '' %>">About</a>
+    </div>
+    <div class="nav-cta">
+      <a href="/menu" class="btn btn-primary btn-sm">Order Now</a>
+      <button class="hamburger" id="hamburgerBtn">&#9776;</button>
+    </div>
+  </div>
+</nav>

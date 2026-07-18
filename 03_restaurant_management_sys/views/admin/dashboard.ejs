@@ -1,0 +1,53 @@
+<div class="stat-grid" id="statGrid">
+  <div class="stat-card">
+    <div class="stat-icon icon-gold">&#128176;</div>
+    <div class="stat-value" id="statSales">₹0</div>
+    <div class="stat-label">Today's Sales</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon icon-blue">&#128221;</div>
+    <div class="stat-value" id="statOrders">0</div>
+    <div class="stat-label">Today's Orders</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon icon-green">&#9633;</div>
+    <div class="stat-value" id="statTables">0 / 0</div>
+    <div class="stat-label">Tables Occupied</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon icon-red">&#9888;</div>
+    <div class="stat-value" id="statLowStock">0</div>
+    <div class="stat-label">Low Stock Alerts</div>
+  </div>
+</div>
+
+<div style="display:grid; grid-template-columns: 1.6fr 1fr; gap:24px;">
+  <div class="panel">
+    <div class="panel-head">
+      <h3>Recent Orders</h3>
+      <a href="/admin/orders" class="btn btn-outline btn-sm">View All</a>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Order #</th><th>Customer</th><th>Type</th><th>Total</th><th>Status</th></tr>
+        </thead>
+        <tbody id="recentOrdersBody">
+          <tr><td colspan="5" style="text-align:center; color:var(--text-muted);">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <h3>Stock Alerts</h3>
+      <a href="/admin/inventory" class="btn btn-outline btn-sm">Manage</a>
+    </div>
+    <div id="stockAlertsWrap">
+      <div class="empty-state">Loading...</div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/admin-dashboard.js"></script>

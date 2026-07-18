@@ -1,0 +1,30 @@
+{
+  "name": "restaurant-management-system",
+  "version": "1.0.0",
+  "description": "Full-stack Restaurant Management System - Node.js, Express, MongoDB, EJS, jQuery",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "seed": "node config/seed.js"
+  },
+  "keywords": ["restaurant", "express", "mongodb", "ejs"],
+  "author": "Imdad",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.1.0",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.5.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

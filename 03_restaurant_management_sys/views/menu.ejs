@@ -1,0 +1,107 @@
+<section class="section" style="padding-top:60px;">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center;">The Full Spread</div>
+      <h2>Our Menu</h2>
+      <p>Add dishes to your cart, then check out as dine-in or takeaway. Everything here reflects what's actually in the kitchen right now.</p>
+    </div>
+
+    <div class="menu-tabs" id="menuTabs">
+      <button class="menu-tab active" data-cat="all">All</button>
+      <% categories.forEach(function(cat) { %>
+        <button class="menu-tab" data-cat="<%= cat %>"><%= cat %></button>
+      <% }); %>
+    </div>
+
+    <% if (items.length === 0) { %>
+      <div class="empty-cart">No dishes available right now - please check back soon.</div>
+    <% } else { %>
+    <div class="dish-grid" id="dishGrid">
+      <% items.forEach(function(item) { %>
+        <div class="dish-card" data-category="<%= item.category %>">
+          <div class="dish-thumb">
+            <span class="veg-dot <%= item.isVeg ? '' : 'non-veg' %>"></span>
+            <%= item.name.charAt(0) %>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3><%= item.name %></h3>
+              <div class="dish-price">₹<%= item.price %></div>
+            </div>
+            <p><%= item.description %></p>
+            <div class="dish-foot">
+              <span style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.05em;"><%= item.category %></span>
+              <button class="add-btn"
+                data-id="<%= item._id %>"
+                data-name="<%= item.name %>"
+                data-price="<%= item.price %>">
+                + Add
+              </button>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+    <% } %>
+  </div>
+</section>
+
+<!-- Floating cart button -->
+<button class="cart-fab" id="cartFab">
+  🛒 Cart <span class="cart-badge" id="cartCount">0</span>
+</button>
+
+<!-- Cart drawer -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="cartDrawer">
+  <div class="drawer-head">
+    <h3 style="margin:0;">Your Order</h3>
+    <button class="drawer-close" id="drawerClose">&times;</button>
+  </div>
+  <div class="drawer-body" id="cartItemsWrap">
+    <div class="empty-cart">Your cart is empty. Add a dish to get started.</div>
+  </div>
+  <div class="drawer-foot" id="drawerFoot" style="display:none;">
+    <div class="drawer-total"><span>Total</span><span id="cartTotal">₹0</span></div>
+    <button class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</button>
+  </div>
+</div>
+
+<!-- Checkout modal (reuses admin modal classes) -->
+<div class="drawer-overlay" id="checkoutOverlay"></div>
+<div class="drawer" id="checkoutDrawer" style="right:-420px;">
+  <div class="drawer-head">
+    <h3 style="margin:0;">Checkout</h3>
+    <button class="drawer-close" id="checkoutClose">&times;</button>
+  </div>
+  <div class="drawer-body">
+    <form id="checkoutForm">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" class="form-control" name="customerName" required />
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" class="form-control" name="phone" required />
+      </div>
+      <div class="form-group">
+        <label>Order Type</label>
+        <select class="form-control" name="orderType" id="orderTypeSelect">
+          <option value="dine-in">Dine-In</option>
+          <option value="takeaway">Takeaway</option>
+        </select>
+      </div>
+      <div class="form-group" id="tableGroup">
+        <label>Choose an available table</label>
+        <div id="tablePickerWrap" style="color:var(--text-muted); font-size:0.85rem;">Loading tables...</div>
+      </div>
+      <div class="form-group">
+        <label>Notes (optional)</label>
+        <textarea class="form-control" name="notes" rows="2" placeholder="Allergies, spice level, etc."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Place Order</button>
+    </form>
+  </div>
+</div>
+
+<script src="/js/menu.js"></script>

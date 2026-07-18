@@ -1,0 +1,71 @@
+<div class="panel">
+  <div class="panel-head">
+    <h3>Inventory</h3>
+    <button class="btn btn-primary btn-sm" id="addInvBtn">+ Add Item</button>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr><th>Item</th><th>Category</th><th>Stock</th><th>Threshold</th><th>Cost / Unit</th><th></th></tr>
+      </thead>
+      <tbody id="invBody">
+        <tr><td colspan="6" style="text-align:center; color:var(--text-muted);">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal-overlay" id="invModalOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="invModalTitle">Add Inventory Item</h3>
+      <button class="modal-close" id="invModalClose">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form id="invForm">
+        <input type="hidden" name="_id" />
+        <div class="form-group">
+          <label>Item Name</label>
+          <input type="text" class="form-control" name="itemName" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Quantity</label>
+            <input type="number" class="form-control" name="quantity" min="0" step="0.1" required />
+          </div>
+          <div class="form-group">
+            <label>Unit</label>
+            <select class="form-control" name="unit">
+              <option value="kg">kg</option>
+              <option value="gm">gm</option>
+              <option value="ltr">ltr</option>
+              <option value="ml">ml</option>
+              <option value="pcs">pcs</option>
+              <option value="unit">unit</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Low Stock Threshold</label>
+            <input type="number" class="form-control" name="thresholdLevel" min="0" step="0.1" required />
+          </div>
+          <div class="form-group">
+            <label>Cost per Unit (₹)</label>
+            <input type="number" class="form-control" name="costPerUnit" min="0" step="0.01" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <input type="text" class="form-control" name="category" placeholder="Dairy / Vegetable / Meat..." />
+        </div>
+      </form>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" id="invCancelBtn" type="button">Cancel</button>
+      <button class="btn btn-primary" id="invSaveBtn" type="button">Save Item</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/admin-inventory.js"></script>

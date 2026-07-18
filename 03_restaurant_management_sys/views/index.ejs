@@ -1,0 +1,132 @@
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Est. Silchar · Modern Indian Kitchen</div>
+      <h1>Dining, plated with <em>intention.</em></h1>
+      <p class="lead">Reserve your table or order ahead in seconds. Savora blends seasonal ingredients with an obsessive attention to service - so the only decision you have to make is what to eat first.</p>
+      <div class="hero-actions">
+        <a href="/menu" class="btn btn-primary">Browse the Menu</a>
+        <a href="/reserve" class="btn btn-outline">Reserve a Table</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>4.9</strong><span>Guest Rating</span></div>
+        <div><strong>12k+</strong><span>Orders Served</span></div>
+        <div><strong>10</strong><span>Tables Ready</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=900&auto=format&fit=crop" alt="Signature plated dish at Savora" />
+      <div class="hero-ticket">
+        <div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Tonight's Special</div>
+          <strong>Butter Chicken · ₹349</strong>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center;">Why Savora</div>
+      <h2>Built for a smoother night out</h2>
+      <p>From the second you book a table to the moment your check arrives, everything runs on the same system - so nothing gets lost between the kitchen and your table.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="icon">&#9200;</div>
+        <h3>Real-Time Table Availability</h3>
+        <p>See exactly which tables are open before you book - no double-bookings, no waiting at the door.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">&#127860;</div>
+        <h3>Order Ahead or Dine-In</h3>
+        <p>Browse the full menu, build your order, and send it straight to the kitchen - whether you're at a table or ordering takeaway.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">&#9878;</div>
+        <h3>Fresh Ingredients, Always</h3>
+        <p>Every dish is tied to live kitchen inventory, so what's on the menu is always what's actually in stock.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% if (featured && featured.length) { %>
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center;">Chef's Picks</div>
+      <h2>Featured on the menu tonight</h2>
+    </div>
+    <div class="dish-grid">
+      <% featured.forEach(function(item) { %>
+        <div class="dish-card">
+          <div class="dish-thumb">
+            <span class="veg-dot <%= item.isVeg ? '' : 'non-veg' %>"></span>
+            <%= item.name.charAt(0) %>
+          </div>
+          <div class="dish-body">
+            <div class="dish-top">
+              <h3><%= item.name %></h3>
+              <div class="dish-price">₹<%= item.price %></div>
+            </div>
+            <p><%= item.description %></p>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+    <div style="text-align:center; margin-top:44px;">
+      <a href="/menu" class="btn btn-primary">See Full Menu</a>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center;">Guest Notes</div>
+      <h2>What people are saying</h2>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Booked a table for 6 in under a minute and it was ready exactly on time. The butter chicken alone is worth the trip."</p>
+        <div class="review-author">
+          <div class="review-avatar">R</div>
+          <div><strong>Riya Sharma</strong><span>Regular Guest</span></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Ordered takeaway from my desk and it was ready by the time I walked over. Genuinely the smoothest ordering flow I've used."</p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div><strong>Arif Hussain</strong><span>Weekly Regular</span></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"The lava cake never disappoints, and the staff always seem to know exactly where things stand with my order."</p>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div><strong>Meera Das</strong><span>Food Blogger</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <div class="eyebrow" style="justify-content:center;">Tonight's Table</div>
+      <h2>Ready when you are.</h2>
+      <p>Pick a time, pick a table, and we'll have it set before you walk in.</p>
+      <a href="/reserve" class="btn btn-primary">Reserve a Table</a>
+    </div>
+  </div>
+</section>

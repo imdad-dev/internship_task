@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %> · Savora Admin</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍽️</text></svg>" />
+  <link rel="stylesheet" href="/css/admin.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <div class="admin-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">Savora<span>.</span><small>Restaurant Console</small></div>
+      <nav class="sidebar-nav">
+        <a href="/admin/dashboard" class="<%= active === 'dashboard' ? 'active' : '' %>"><span class="ic">&#9673;</span> Dashboard</a>
+        <a href="/admin/orders" class="<%= active === 'orders' ? 'active' : '' %>"><span class="ic">&#128221;</span> Orders</a>
+        <a href="/admin/menu" class="<%= active === 'menu' ? 'active' : '' %>"><span class="ic">&#127860;</span> Menu</a>
+        <a href="/admin/tables" class="<%= active === 'tables' ? 'active' : '' %>"><span class="ic">&#9633;</span> Tables</a>
+        <a href="/admin/reservations" class="<%= active === 'reservations' ? 'active' : '' %>"><span class="ic">&#128197;</span> Reservations</a>
+        <a href="/admin/inventory" class="<%= active === 'inventory' ? 'active' : '' %>"><span class="ic">&#128230;</span> Inventory</a>
+        <a href="/admin/reports" class="<%= active === 'reports' ? 'active' : '' %>"><span class="ic">&#128200;</span> Reports</a>
+        <a href="/" target="_blank"><span class="ic">&#8599;</span> View Website</a>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="admin-chip">
+          <div class="avatar"><%= (admin && admin.name ? admin.name.charAt(0) : 'A').toUpperCase() %></div>
+          <div>
+            <strong><%= admin ? admin.name : 'Admin' %></strong>
+            <span><%= admin ? admin.role : '' %></span>
+          </div>
+        </div>
+        <a href="/admin/logout" class="logout-link">&#10162; Log Out</a>
+      </div>
+    </aside>
+
+    <div class="admin-main">
+      <div class="mobile-topbar">
+        <button id="mobileSidebarBtn">&#9776;</button>
+        <strong><%= title %></strong>
+      </div>
+      <header class="admin-topbar">
+        <div>
+          <h1><%= title %></h1>
+          <div class="sub">Manage your restaurant operations in real time</div>
+        </div>
+      </header>
+      <div class="admin-content">
+        <% if (typeof errorMsg !== 'undefined' && errorMsg && errorMsg.length) { %>
+          <div class="alert alert-error"><%= errorMsg[0] %></div>
+        <% } %>
+        <%- body %>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-stack" id="toastStack"></div>
+  <script src="/js/toast.js"></script>
+  <script>
+    $('#mobileSidebarBtn').on('click', function () { $('#sidebar').toggleClass('open'); });
+  </script>
+</body>
+</html>
