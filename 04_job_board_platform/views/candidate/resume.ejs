@@ -1,0 +1,17 @@
+<div class="panel">
+  <div class="panel-head"><h3>Upload a New Resume</h3></div>
+  <form id="resumeUploadForm" style="display:flex; gap:14px; align-items:flex-end; flex-wrap:wrap;">
+    <div class="form-group" style="flex:1; min-width:220px; margin-bottom:0;">
+      <label>PDF, DOC, or DOCX (max 5MB)</label>
+      <input type="file" class="form-control" name="resumeFile" accept=".pdf,.doc,.docx" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+  </form>
+</div>
+
+<div class="panel">
+  <div class="panel-head"><h3>My Resumes</h3></div>
+  <div id="resumeList"><div class="empty-state">Loading...</div></div>
+</div>
+
+<script src="/js/candidate-resume.js"></script>

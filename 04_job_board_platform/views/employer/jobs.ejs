@@ -1,0 +1,81 @@
+<div class="panel">
+  <div class="panel-head">
+    <h3>My Job Listings</h3>
+    <button class="btn btn-primary btn-sm" id="addJobBtn">+ Post a Job</button>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Title</th><th>Category / Type</th><th>Location</th><th>Applicants</th><th>Status</th><th></th></tr></thead>
+      <tbody id="jobsTableBody"><tr><td colspan="6" style="text-align:center; color:var(--text-muted);">Loading...</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal-overlay" id="jobModalOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="jobModalTitle">Post a Job</h3>
+      <button class="modal-close" id="jobModalClose">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form id="jobForm">
+        <input type="hidden" name="_id" />
+        <div class="form-group">
+          <label>Job Title</label>
+          <input type="text" class="form-control" name="title" required />
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="form-control" name="description" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Requirements</label>
+          <textarea class="form-control" name="requirements" rows="2"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Category</label>
+            <select class="form-control" name="category">
+              <option>Engineering</option><option>Design</option><option>Product</option>
+              <option>Marketing</option><option>Sales</option><option>Support</option>
+              <option>Operations</option><option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Job Type</label>
+            <select class="form-control" name="jobType">
+              <option>Full-Time</option><option>Part-Time</option><option>Internship</option>
+              <option>Contract</option><option>Remote</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" class="form-control" name="location" placeholder="City or 'Remote'" />
+          </div>
+          <div class="form-group">
+            <label>Skills (comma-separated)</label>
+            <input type="text" class="form-control" name="skillsRequired" placeholder="React, Node.js" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Salary Min (₹/yr)</label>
+            <input type="number" class="form-control" name="salaryMin" min="0" />
+          </div>
+          <div class="form-group">
+            <label>Salary Max (₹/yr)</label>
+            <input type="number" class="form-control" name="salaryMax" min="0" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" id="jobCancelBtn" type="button">Cancel</button>
+      <button class="btn btn-primary" id="jobSaveBtn" type="button">Save Job</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/employer-jobs.js"></script>

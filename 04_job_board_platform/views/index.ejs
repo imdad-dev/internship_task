@@ -1,0 +1,108 @@
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="eyebrow" style="justify-content:center;">Now Hiring Across Tech, Design &amp; Ops</div>
+    <h1>Find work that actually <span>fits.</span></h1>
+    <p class="lead">HireLoop connects candidates with growing companies - real listings, a real application tracker, and a straightforward way to get noticed.</p>
+
+    <form class="search-bar" id="heroSearchForm">
+      <input type="text" name="q" placeholder="Job title, skill, or keyword..." />
+      <button type="submit" class="btn btn-primary">Search Jobs</button>
+    </form>
+
+    <div class="hero-stats">
+      <div><strong><%= totalOpenJobs %></strong><span>Open Roles</span></div>
+      <div><strong>3</strong><span>Hiring Companies</span></div>
+      <div><strong>24h</strong><span>Avg. Response Time</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center;">How It Works</div>
+      <h2>Built for a faster job search</h2>
+      <p>From search to offer, everything you need lives in one dashboard - for candidates and employers alike.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="icon">&#128269;</div>
+        <h3>Real-Time Search &amp; Filters</h3>
+        <p>Filter by category, job type, location, and salary to skip roles that don't fit.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">&#128196;</div>
+        <h3>One Resume, Every Application</h3>
+        <p>Upload once - your latest resume attaches automatically to every job you apply for.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">&#128276;</div>
+        <h3>Live Status Updates</h3>
+        <p>Get notified the moment an employer moves your application forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% if (recentJobs && recentJobs.length) { %>
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center;">Fresh Listings</div>
+      <h2>Recently posted roles</h2>
+    </div>
+    <div class="job-grid">
+      <% recentJobs.forEach(function(job) { %>
+        <a href="/jobs/<%= job._id %>" class="job-card">
+          <div class="job-card-top">
+            <div class="job-logo"><%= job.employer.logoLetter || job.employer.companyName.charAt(0) %></div>
+            <div>
+              <h3><%= job.title %></h3>
+              <div class="job-company"><%= job.employer.companyName %></div>
+            </div>
+          </div>
+          <div class="job-meta">
+            <span class="job-tag type"><%= job.jobType %></span>
+            <span class="job-tag"><%= job.location %></span>
+            <span class="job-tag"><%= job.category %></span>
+          </div>
+          <div class="job-card-foot">
+            <div class="job-salary"><%= job.salaryMax ? '₹' + job.salaryMin.toLocaleString() + ' - ₹' + job.salaryMax.toLocaleString() : 'Not disclosed' %></div>
+            <span style="font-size:0.8rem; color:var(--primary); font-weight:600;">View &rarr;</span>
+          </div>
+        </a>
+      <% }); %>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="/jobs" class="btn btn-primary">See All Jobs</a>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<section class="section">
+  <div class="container">
+    <div class="feature-grid" style="grid-template-columns: 1fr 1fr;">
+      <div class="feature-card" style="padding:40px;">
+        <div class="eyebrow">For Candidates</div>
+        <h2 style="font-size:1.6rem;">Apply in a couple of clicks.</h2>
+        <p style="color:var(--text-muted); margin-bottom:22px;">Build a profile, upload your resume once, and apply to any open role instantly.</p>
+        <a href="/candidate/register" class="btn btn-primary">Create Candidate Account</a>
+      </div>
+      <div class="feature-card" style="padding:40px;">
+        <div class="eyebrow">For Employers</div>
+        <h2 style="font-size:1.6rem;">Post a job in minutes.</h2>
+        <p style="color:var(--text-muted); margin-bottom:22px;">List your opening, review applicants with attached resumes, and move candidates through your pipeline.</p>
+        <a href="/employer/register" class="btn btn-primary">Post a Job</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  $("#heroSearchForm").on("submit", function (e) {
+    e.preventDefault();
+    var q = $(this).find("input[name='q']").val();
+    window.location.href = "/jobs" + (q ? "?q=" + encodeURIComponent(q) : "");
+  });
+</script>

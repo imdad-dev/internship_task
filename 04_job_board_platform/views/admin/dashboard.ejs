@@ -1,0 +1,35 @@
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-icon icon-primary">&#128188;</div>
+    <div class="stat-value" id="statOpenJobs">0</div>
+    <div class="stat-label">Open Jobs</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon icon-info">&#128221;</div>
+    <div class="stat-value" id="statApplications">0</div>
+    <div class="stat-label">Total Applications</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon icon-warn">&#128100;</div>
+    <div class="stat-value" id="statCandidates">0</div>
+    <div class="stat-label">Candidates</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon icon-green">&#127970;</div>
+    <div class="stat-value" id="statEmployers">0</div>
+    <div class="stat-label">Employers</div>
+  </div>
+</div>
+
+<div style="display:grid; grid-template-columns: 1.4fr 1fr; gap:22px;">
+  <div class="panel">
+    <div class="panel-head"><h3>Applications by Status</h3></div>
+    <div id="statusBreakdown"><div class="empty-state">Loading...</div></div>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><h3>Most Applied-To Jobs</h3></div>
+    <div id="topJobsWrap"><div class="empty-state">Loading...</div></div>
+  </div>
+</div>
+
+<script src="/js/admin-dashboard.js"></script>

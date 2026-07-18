@@ -1,0 +1,79 @@
+<section class="section" style="padding-top:56px;">
+  <div class="container" style="max-width:920px;">
+    <div class="job-detail-head">
+      <div class="job-logo"><%= job.employer.logoLetter || job.employer.companyName.charAt(0) %></div>
+      <div style="flex:1;">
+        <div class="eyebrow"><%= job.employer.companyName %></div>
+        <h1 style="font-size:1.7rem; margin:6px 0 10px;"><%= job.title %></h1>
+        <div class="job-meta">
+          <span class="job-tag type"><%= job.jobType %></span>
+          <span class="job-tag"><%= job.location %></span>
+          <span class="job-tag"><%= job.category %></span>
+          <span class="job-tag"><%= job.status === 'open' ? '🟢 Accepting Applications' : '🔴 Closed' %></span>
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <div class="job-salary" style="font-size:1.2rem; margin-bottom:12px;"><%= job.salaryMax ? '₹' + job.salaryMin.toLocaleString() + ' - ₹' + job.salaryMax.toLocaleString() : 'Not disclosed' %></div>
+        <button class="btn btn-primary" id="applyBtn" <%= job.status !== 'open' ? 'disabled' : '' %>>Apply Now</button>
+      </div>
+    </div>
+
+    <div class="job-detail-body">
+      <div>
+        <div class="info-card" style="margin-bottom:20px;">
+          <h4>Job Description</h4>
+          <p style="color:var(--text-muted); white-space:pre-line;"><%= job.description %></p>
+        </div>
+        <div class="info-card">
+          <h4>Requirements</h4>
+          <p style="color:var(--text-muted); white-space:pre-line;"><%= job.requirements || 'Not specified.' %></p>
+        </div>
+      </div>
+      <div>
+        <div class="info-card" style="margin-bottom:20px;">
+          <h4>Skills</h4>
+          <% (job.skillsRequired || []).forEach(function(s) { %><span class="skill-chip"><%= s %></span><% }); %>
+          <% if (!job.skillsRequired || job.skillsRequired.length === 0) { %><p style="color:var(--text-muted); font-size:0.86rem;">Not specified.</p><% } %>
+        </div>
+        <div class="info-card">
+          <h4>About <%= job.employer.companyName %></h4>
+          <p style="color:var(--text-muted); font-size:0.88rem;"><%= job.employer.about || 'No company description yet.' %></p>
+          <% if (job.employer.website) { %><a href="<%= job.employer.website %>" target="_blank" style="color:var(--primary); font-size:0.85rem; font-weight:600;"><%= job.employer.website %></a><% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Apply Modal -->
+<div class="modal-overlay" id="applyModalOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 style="margin:0;">Apply to <%= job.title %></h3>
+      <button class="modal-close" id="applyModalClose">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div id="applyLoggedOut" style="display:none; text-align:center; padding:14px 0;">
+        <p style="color:var(--text-muted); margin-bottom:18px;">Please log in as a candidate to apply for this role.</p>
+        <a href="/candidate/login" class="btn btn-primary">Candidate Login</a>
+        <p style="margin-top:14px; font-size:0.85rem; color:var(--text-muted);">New here? <a href="/candidate/register" style="color:var(--primary); font-weight:600;">Create an account</a></p>
+      </div>
+      <form id="applyForm">
+        <div class="form-group">
+          <label>Resume</label>
+          <div id="resumePickerWrap" style="font-size:0.85rem; color:var(--text-muted);">Loading your resumes...</div>
+        </div>
+        <div class="form-group">
+          <label>Cover Letter (optional)</label>
+          <textarea class="form-control" name="coverLetter" rows="4" placeholder="A few lines about why you're a fit..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit Application</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  var jobId = "<%= job._id %>";
+</script>
+<script src="/js/job-detail.js"></script>

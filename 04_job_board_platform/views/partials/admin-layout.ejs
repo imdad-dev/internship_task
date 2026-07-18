@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %> · HireLoop Admin</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <div class="dash-shell">
+    <aside class="dash-sidebar" id="sidebar">
+      <div class="dash-brand"><span class="dot" style="width:8px;height:8px;border-radius:50%;background:var(--primary);display:inline-block;"></span> HireLoop<small>Admin Console</small></div>
+      <nav class="dash-nav">
+        <a href="/admin/dashboard" class="<%= active === 'dashboard' ? 'active' : '' %>"><span class="ic">&#9673;</span> Dashboard</a>
+        <a href="/admin/jobs" class="<%= active === 'jobs' ? 'active' : '' %>"><span class="ic">&#128188;</span> All Jobs</a>
+        <a href="/admin/candidates" class="<%= active === 'candidates' ? 'active' : '' %>"><span class="ic">&#128100;</span> Candidates</a>
+        <a href="/admin/employers" class="<%= active === 'employers' ? 'active' : '' %>"><span class="ic">&#127970;</span> Employers</a>
+        <a href="/" target="_blank"><span class="ic">&#8599;</span> View Job Board</a>
+      </nav>
+      <div class="dash-foot">
+        <div class="dash-chip">
+          <div class="dash-avatar"><%= admin.name.charAt(0).toUpperCase() %></div>
+          <div><strong><%= admin.name %></strong><span>Administrator</span></div>
+        </div>
+        <a href="/admin/logout" class="dash-logout">&#10162; Log Out</a>
+      </div>
+    </aside>
+
+    <div class="dash-main">
+      <div class="mobile-topbar"><button id="mobileSidebarBtn">&#9776;</button><strong><%= title %></strong></div>
+      <header class="dash-topbar">
+        <div><h1><%= title %></h1><div class="sub">Platform-wide oversight and reporting</div></div>
+      </header>
+      <div class="dash-content">
+        <% if (typeof errorMsg !== 'undefined' && errorMsg && errorMsg.length) { %><div class="alert alert-error"><%= errorMsg[0] %></div><% } %>
+        <%- body %>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-stack" id="toastStack"></div>
+  <script src="/js/toast.js"></script>
+  <script>
+    $('#mobileSidebarBtn').on('click', function () { $('#sidebar').toggleClass('open'); });
+  </script>
+</body>
+</html>

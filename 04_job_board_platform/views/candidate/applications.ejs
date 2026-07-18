@@ -1,0 +1,21 @@
+<div class="panel">
+  <div class="panel-head">
+    <h3>My Applications</h3>
+    <select class="form-control" id="statusFilter" style="width:auto;">
+      <option value="">All Statuses</option>
+      <option value="applied">Applied</option>
+      <option value="shortlisted">Shortlisted</option>
+      <option value="interview">Interview</option>
+      <option value="hired">Hired</option>
+      <option value="rejected">Rejected</option>
+    </select>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Job</th><th>Company</th><th>Type</th><th>Applied</th><th>Status</th></tr></thead>
+      <tbody id="appsBody"><tr><td colspan="5" style="text-align:center; color:var(--text-muted);">Loading...</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="/js/candidate-applications.js"></script>

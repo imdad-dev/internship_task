@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <div class="container">
+    <a href="/" class="brand"><span class="dot"></span> HireLoop</a>
+    <div class="nav-links">
+      <a href="/" class="<%= currentPath === '/' ? 'active' : '' %>">Home</a>
+      <a href="/jobs" class="<%= currentPath === '/jobs' ? 'active' : '' %>">Browse Jobs</a>
+      <a href="/about" class="<%= currentPath === '/about' ? 'active' : '' %>">About</a>
+    </div>
+    <div class="nav-cta">
+      <a href="/employer/login" class="btn btn-outline btn-sm">For Employers</a>
+      <a href="/candidate/login" class="btn btn-primary btn-sm">Candidate Login</a>
+      <button class="hamburger" id="hamburgerBtn">&#9776;</button>
+    </div>
+  </div>
+</nav>

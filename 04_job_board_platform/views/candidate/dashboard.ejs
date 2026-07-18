@@ -1,0 +1,45 @@
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-icon icon-primary">&#128221;</div>
+    <div class="stat-value" id="statTotal">0</div>
+    <div class="stat-label">Applications Sent</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon icon-info">&#127775;</div>
+    <div class="stat-value" id="statShortlisted">0</div>
+    <div class="stat-label">Shortlisted</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon icon-warn">&#128172;</div>
+    <div class="stat-value" id="statInterview">0</div>
+    <div class="stat-label">Interview Stage</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon icon-green">&#9989;</div>
+    <div class="stat-value" id="statHired">0</div>
+    <div class="stat-label">Offers</div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="panel-head">
+    <h3>Recent Applications</h3>
+    <a href="/candidate/applications" class="btn btn-outline btn-sm">View All</a>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Job</th><th>Company</th><th>Applied</th><th>Status</th></tr></thead>
+      <tbody id="recentAppsBody"><tr><td colspan="4" style="text-align:center; color:var(--text-muted);">Loading...</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="feature-card" style="padding:26px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+  <div>
+    <h3 style="margin-bottom:4px;">Ready for your next role?</h3>
+    <p style="color:var(--text-muted); margin:0;">Browse open positions matched to your skills.</p>
+  </div>
+  <a href="/jobs" class="btn btn-primary">Browse Jobs</a>
+</div>
+
+<script src="/js/candidate-dashboard.js"></script>

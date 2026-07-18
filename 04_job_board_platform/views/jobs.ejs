@@ -1,0 +1,53 @@
+<section class="section" style="padding-top:56px;">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:36px;">
+      <div class="eyebrow" style="justify-content:center;">Open Roles</div>
+      <h2>Browse Jobs</h2>
+      <p>Search and filter to find roles that match your skills and preferences.</p>
+    </div>
+
+    <form class="filter-bar" id="filterForm">
+      <div class="form-group">
+        <label>Keyword</label>
+        <input type="text" class="form-control" name="q" placeholder="Title, skill, keyword..." />
+      </div>
+      <div class="form-group">
+        <label>Category</label>
+        <select class="form-control" name="category">
+          <option value="">Any</option>
+          <option>Engineering</option>
+          <option>Design</option>
+          <option>Product</option>
+          <option>Marketing</option>
+          <option>Sales</option>
+          <option>Support</option>
+          <option>Operations</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Job Type</label>
+        <select class="form-control" name="jobType">
+          <option value="">Any</option>
+          <option>Full-Time</option>
+          <option>Part-Time</option>
+          <option>Internship</option>
+          <option>Contract</option>
+          <option>Remote</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" class="form-control" name="location" placeholder="City or 'Remote'" />
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <div id="jobResultsMeta" style="margin-bottom:18px; color:var(--text-muted); font-size:0.88rem;"></div>
+    <div class="job-grid" id="jobGrid">
+      <div class="empty-state">Loading jobs...</div>
+    </div>
+  </div>
+</section>
+
+<script src="/js/jobs.js"></script>

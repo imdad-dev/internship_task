@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %> · HireLoop</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <div class="dash-shell">
+    <aside class="dash-sidebar" id="sidebar">
+      <div class="dash-brand"><span class="dot" style="width:8px;height:8px;border-radius:50%;background:var(--primary);display:inline-block;"></span> HireLoop<small>Candidate Portal</small></div>
+      <nav class="dash-nav">
+        <a href="/candidate/dashboard" class="<%= active === 'dashboard' ? 'active' : '' %>"><span class="ic">&#9673;</span> Dashboard</a>
+        <a href="/jobs" ><span class="ic">&#128269;</span> Browse Jobs</a>
+        <a href="/candidate/applications" class="<%= active === 'applications' ? 'active' : '' %>"><span class="ic">&#128221;</span> My Applications</a>
+        <a href="/candidate/resume" class="<%= active === 'resume' ? 'active' : '' %>"><span class="ic">&#128196;</span> My Resume</a>
+        <a href="/candidate/profile" class="<%= active === 'profile' ? 'active' : '' %>"><span class="ic">&#128100;</span> Profile</a>
+      </nav>
+      <div class="dash-foot">
+        <div class="dash-chip">
+          <div class="dash-avatar"><%= candidate.name.charAt(0).toUpperCase() %></div>
+          <div><strong><%= candidate.name %></strong><span>Candidate</span></div>
+        </div>
+        <a href="/candidate/logout" class="dash-logout">&#10162; Log Out</a>
+      </div>
+    </aside>
+
+    <div class="dash-main">
+      <div class="mobile-topbar"><button id="mobileSidebarBtn">&#9776;</button><strong><%= title %></strong></div>
+      <header class="dash-topbar">
+        <div><h1><%= title %></h1><div class="sub">Track applications and manage your job search</div></div>
+        <div class="notif-wrap">
+          <button class="notif-btn" id="notifBtn">&#128276;<span class="notif-dot" id="notifDot" style="display:none;">0</span></button>
+          <div class="notif-dropdown" id="notifDropdown"><div class="notif-empty">Loading...</div></div>
+        </div>
+      </header>
+      <div class="dash-content">
+        <% if (typeof errorMsg !== 'undefined' && errorMsg && errorMsg.length) { %><div class="alert alert-error"><%= errorMsg[0] %></div><% } %>
+        <%- body %>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-stack" id="toastStack"></div>
+  <script src="/js/toast.js"></script>
+  <script src="/js/notifications.js"></script>
+  <script>
+    $('#mobileSidebarBtn').on('click', function () { $('#sidebar').toggleClass('open'); });
+  </script>
+</body>
+</html>

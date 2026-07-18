@@ -1,0 +1,37 @@
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-icon icon-primary">&#128188;</div>
+    <div class="stat-value" id="statJobs">0</div>
+    <div class="stat-label">Active Listings</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon icon-info">&#128100;</div>
+    <div class="stat-value" id="statApplicants">0</div>
+    <div class="stat-label">Total Applicants</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon icon-warn">&#128172;</div>
+    <div class="stat-value" id="statInterview">0</div>
+    <div class="stat-label">In Interview</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon icon-green">&#9989;</div>
+    <div class="stat-value" id="statHired">0</div>
+    <div class="stat-label">Hired</div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="panel-head">
+    <h3>Your Job Listings</h3>
+    <a href="/employer/jobs" class="btn btn-primary btn-sm">Manage Jobs</a>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Title</th><th>Type</th><th>Applicants</th><th>Status</th></tr></thead>
+      <tbody id="jobsBody"><tr><td colspan="4" style="text-align:center; color:var(--text-muted);">Loading...</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="/js/employer-dashboard.js"></script>

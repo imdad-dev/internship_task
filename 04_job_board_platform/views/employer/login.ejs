@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %> · HireLoop</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-brand">
+        <div class="mark">H</div>
+        <h2 style="font-size:1.3rem;">Employer Login</h2>
+        <p>Manage your listings and applicants</p>
+      </div>
+
+      <div class="role-tabs">
+        <a href="/candidate/login">Candidate</a>
+        <a href="/employer/login" class="active">Employer</a>
+      </div>
+
+      <% if (typeof errorMsg !== 'undefined' && errorMsg && errorMsg.length) { %><div class="alert alert-error"><%= errorMsg[0] %></div><% } %>
+
+      <form method="POST" action="/employer/login">
+        <div class="form-group">
+          <label>Work Email</label>
+          <input type="email" class="form-control" name="email" required autofocus />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" name="password" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Log In</button>
+      </form>
+
+      <p class="auth-switch">New to HireLoop? <a href="/employer/register">Create an account</a></p>
+      <p class="auth-switch">Seeded demo login: hr@nimbuscloud.example / password123</p>
+    </div>
+  </div>
+</body>
+</html>
