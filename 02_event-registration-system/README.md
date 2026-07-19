@@ -1,7 +1,7 @@
 # 🎉 EventHub - Event Registration System
 
 <p align="center">
-  <img src="./public/images/banner.png" alt="EventHub Banner" width="100%">
+  <img src="./images/home.png" alt="EventHub Banner" width="100%">
 </p>
 
 <p align="center">
@@ -22,17 +22,12 @@ A full-stack event registration platform where organizers create events and atte
 
 ## 📸 Project Screenshots
 
-> Replace these placeholder images with your own screenshots.
+ 
 
 | Home Page | Event Details |
 |------------|---------------|
-| ![](./screenshots/home.png) | ![](./screenshots/event-details.png) |
+| ![](./images/home.png) | ![](./images/event.png) |
 
-<br>
-
-| Organizer Dashboard | User Dashboard |
-|---------------------|----------------|
-| ![](./screenshots/organizer-dashboard.png) | ![](./screenshots/user-dashboard.png) |
 
 ---
 
