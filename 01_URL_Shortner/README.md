@@ -7,15 +7,18 @@ A professional, full-stack URL shortening service with user authentication, link
 ## 📸 Preview
  ### 🏠 Dashboard
   ![Dashboard](./images/dashboard.png) 
-  ### 🔗 URL Shortening 
+  ### Signup page 
 
-  ![URL Shortener](./images/url-shortener.png) 
-  ### 📊 Analytics 
-  
-  ![Analytics](./images/analytics.png) 
+  ![URL Shortener](./images/signupPage.png) 
+ 
   ### 🔐 Authentication 
   
-  ![Login](./images/login.png) ---
+  ![Login](./images/loginPage.png) 
+  
+    ### 📊 Generate URL
+  
+  ![Analytics](./images/generateURL.png) 
+  ---
 
 ## 🚀 Features
 - **User Authentication**: Secure signup and login system.

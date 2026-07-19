@@ -11,7 +11,7 @@ const userSignup = async (req , res) =>{
         password , 
     })
 
-    return res.redirect("/home");
+    return res.redirect("/");
 }
 
 const userLogin = async (req , res) =>{
@@ -31,7 +31,7 @@ const userLogin = async (req , res) =>{
  res.cookie("jwt" ,token)   
  
 
-        return res.redirect("/home")
+        return res.redirect("/");
 }
 
 module.exports = { userSignup ,userLogin }
