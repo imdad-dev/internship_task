@@ -23,10 +23,13 @@ A full-stack event registration platform where organizers create events and atte
 ## 📸 Project Screenshots
 
  
-
 | Home Page | Event Details |
-|------------|---------------|
-| ![](./images/home.png) | ![](./images/event.png) |
+|-----------|---------------|
+| ![Home Page](./images/home.png) | ![Event Details](./images/event.png) |
+
+| Login Page | Signup Page |
+|------------|-------------|
+| ![Login Page](./images/login.png) | ![Signup Page](./images/signup.png) |
 
 
 ---
