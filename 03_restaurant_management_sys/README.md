@@ -7,6 +7,23 @@ auto-deducts as orders come in.
 
 ---
 
+## 📸 Screenshots
+
+| | |
+|---|---|
+| ![Landing](./images/landing.png) | ![Why Savora](./images/whySavora.png) |
+| **Landing Page** | **Why Savora** |
+| ![About](./images/about.png) | ![Order Menu](./images/orderManu.png) |
+| **About** | **Order Menu** |
+| ![Reserve Table](./images/reservTable.png) | ![Admin Dashboard](./images/adminDashboard.png) |
+| **Reserve Table** | **Admin Dashboard** |
+| ![Admin Reports](./images/adminReport.png) | ![Manage Menu](./images/manageMenu.png) |
+| **Admin Reports** | **Manage Menu** |
+| ![Manage Table](./images/manageTable.png) | |
+| **Manage Table** | |
+
+---
+
 ## ✨ Features
 
 - **Public site**: landing page, live menu with category filters, cart drawer, checkout (dine-in or takeaway), table reservations, order confirmation ticket.
@@ -37,6 +54,7 @@ auto-deducts as orders come in.
 ├── app.js                   # Express app config (middleware, view engine, route mounting)
 ├── package.json
 ├── .env.example              # Copy to .env and fill in your Mongo URI
+├── images/                    # Project screenshots used in this README
 ├── config/
 │   ├── db.js                 # Mongoose connection
 │   └── seed.js               # Seeds default admin + sample tables/inventory/menu
@@ -53,62 +71,6 @@ auto-deducts as orders come in.
     ├── js/                    # menu.js, reserve.js, admin-*.js, toast.js
     └── images/
 ```
-
----
-
-## 🚀 Getting Started
-
-### 1. Prerequisites
-- Node.js v18+
-- A MongoDB instance — either:
-  - **Local**: install MongoDB Community Server and run `mongod`, or
-  - **Cloud**: create a free cluster on MongoDB Atlas and copy its connection string.
-
-### 2. Install dependencies
-```bash
-cd 03_restaurant_management_sys
-npm install
-```
-
-### 3. Configure environment
-Copy `.env.example` to `.env` and update values:
-```bash
-cp .env.example .env
-```
-```env
-PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/restaurant_management
-SESSION_SECRET=change_this_secret
-ADMIN_USERNAME=admin
-ADMIN_PASSWORD=admin123
-ADMIN_EMAIL=admin@restaurant.com
-```
-> If you're using MongoDB Atlas, `MONGO_URI` will look like:
-> `mongodb+srv://<user>:<password>@cluster0.xxxxx.mongodb.net/restaurant_management`
-
-### 4. Seed sample data (recommended for first run)
-This creates a default admin account, 10 tables, ~12 inventory items, and 8 menu dishes with
-ingredients already linked to inventory (so order → auto stock deduction works out of the box).
-```bash
-npm run seed
-```
-
-### 5. Run the server
-```bash
-npm run dev      # with nodemon (auto-restart)
-# or
-npm start        # plain node
-```
-
-Visit:
-- **Website**: http://localhost:5000
-- **Admin login**: http://localhost:5000/admin/login (use the credentials from your `.env`)
-
----
-
-## 🔑 Default Admin Login
-After running `npm run seed`, log in at `/admin/login` with the `ADMIN_USERNAME` / `ADMIN_PASSWORD`
-values from your `.env` (defaults: `admin` / `admin123`).
 
 ---
 
