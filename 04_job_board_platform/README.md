@@ -17,6 +17,23 @@ move applicants through a pipeline. Admins get platform-wide stats and user mana
 
 ---
 
+## 📸 Screenshots
+
+| | |
+|---|---|
+| ![Landing Page](./images/landing.png) | ![About / How It Works](./images/about.png) |
+| **Landing Page** | **About** |
+| ![Job Details](./images/jobDetails.png) | ![Apply with Resume](./images/applyForm.png) |
+| **Job Details** | **Apply with Resume** |
+| ![Job Listings](./images/jobListings.png) | ![Browse All Jobs](./images/allJobList.png) |
+| **Job Listings** | **Browse All Jobs** |
+| ![Employer Account](./images/employerAccount.png) | ![How It Works](./images/howWork.png) |
+| **Employer Account** | **How It Works** |
+| ![Admin Panel](./images/adminPanel.png) | ![Employer Dashboard](./images/employerDashboard.png) |
+| **Admin Panel** | **Employer Dashboard** |
+
+---
+
 ## 🧱 Tech Stack
 
 | Layer      | Tech                                          |
