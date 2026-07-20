@@ -2,7 +2,7 @@
 
 Four backend-heavy full-stack apps, each in its own folder — real APIs, real database models, real business logic. Built with **Node.js, Express, EJS, and MongoDB**, with jQuery handling frontend interactions.
 
-| # | Project | Folder |
+| Sl | Project | Folder |
 |---|---------|--------|
 | 1 | [URL Shortener](#-01--url-shortner) | `01_URL_Shortner/` |
 | 2 | [Event Registration System](#-02--event-registration-system) | `02_event-registration-system/` |
@@ -25,10 +25,12 @@ and copy links.
 
 | | |
 |---|---|
-| ![Dashboard](./01_URL_Shortner/images/Dashboard.png) | ![Shorten](./01_URL_Shortner/images/GenerateURL.png) |
+| ![Dashboard](./01_URL_Shortner/images/dashboard.png) | ![Shorten](./01_URL_Shortner/images/GenerateURL.png) |
 | **Home** | **Shorten a URL** |
 | ![Signup Page](./01_URL_Shortner/images/signupPage.png) | ![Login page](./01_URL_Shortner/images/loginPage.png) |
 | **Click Analytics** | **Redirect in Action** |
+
+📄 [Full project README →](./01_URL_Shortner/README.md)
 
 ---
 
@@ -46,6 +48,8 @@ details, and an admin side to manage listings and see who's signed up.
 | Login Page | Signup Page |
 |------------|-------------|
 | ![Login Page](./02_event-registration-system/images/login.png) | ![Signup Page](./02_event-registration-system/images/signup.png) |
+
+📄 [Full project README →](./02_event-registration-system/README.md)
  
 ---
 
@@ -79,16 +83,16 @@ application status from a dashboard — plus an admin panel for platform-wide st
 
 | | |
 |---|---|
-| ![Landing](./04_job_board_platform/images/landing.png) | ![Job Listings](./04_job_board_platform/images/jobListings.png) |
-| **Landing Page** | **Job Listings** |
+| ![Landing](./04_job_board_platform/images/landing.png) | ![About](./04_job_board_platform/images/about.png) |
+| **Landing Page** | **About** |
 | ![Job Details](./04_job_board_platform/images/jobDetails.png) | ![Apply Form](./04_job_board_platform/images/applyForm.png) |
 | **Job Details** | **Apply with Resume** |
-| ![Employer Dashboard](./04_job_board_platform/images/employerDashboard.png) | ![Post Job](./04_job_board_platform/images/postJob.png) |
-| **Employer Dashboard** | **Post a Job** |
-| ![Candidate Dashboard](./04_job_board_platform/images/candidateDashboard.png) | ![Application Status](./04_job_board_platform/images/applicationStatus.png) |
-| **Candidate Dashboard** | **Application Tracking** |
-| ![Admin Panel](./04_job_board_platform/images/adminPanel.png) | ![Reports](./04_job_board_platform/images/reports.png) |
-| **Admin Panel** | **Reports & Stats** |
+| ![Job Listings](./04_job_board_platform/images/jobListings.png) | ![All Job Listings](./04_job_board_platform/images/allJobList.png) |
+| **Job Listings** | **Browse All Jobs** |
+| ![Employer Account](./04_job_board_platform/images/employerAccount.png) | ![How It Works](./04_job_board_platform/images/howWork.png) |
+| **Employer Account** | **How It Works** |
+| ![Admin Panel](./04_job_board_platform/images/adminPanel.png) | ![Employer Dashboard](./04_job_board_platform/images/employerDashboard.png) |
+| **Admin Panel** | **Employer Dashboard** |
 
 📄 [Full project README →](./04_job_board_platform/README.md)
 
